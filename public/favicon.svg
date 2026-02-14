@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect x="16" y="16" width="480" height="480" rx="96" ry="96" fill="#3D3D3D"/>
+  <rect x="40" y="40" width="432" height="432" rx="76" ry="76" fill="#FFFFFF"/>
+  <!-- Asterisk arms -->
+  <line x1="256" y1="130" x2="256" y2="382" stroke="#E8734A" stroke-width="48" stroke-linecap="round"/>
+  <line x1="147" y1="193" x2="365" y2="319" stroke="#E8734A" stroke-width="48" stroke-linecap="round"/>
+  <line x1="147" y1="319" x2="365" y2="193" stroke="#E8734A" stroke-width="48" stroke-linecap="round"/>
+</svg>
