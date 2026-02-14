@@ -15,60 +15,60 @@ export function ListingCard({ listing, onUpdate, onDelete }) {
     }
 
     return (
-        <div className={`card bg-slate-900/50 border-slate-800 transition-all duration-300 ${isExpanded ? 'ring-2 ring-indigo-500/50' : 'hover:border-slate-700'}`}>
-            <div className="flex items-start gap-4">
-                {/* Thumbnail Placeholder */}
-                <div className="w-24 h-24 bg-slate-800 rounded-lg shrink-0 flex items-center justify-center border border-slate-700">
+        <div className={`bg-white border rounded-2xl p-5 transition-all duration-300 shadow-sm ${isExpanded ? 'border-[#F1641E] ring-2 ring-[#F1641E]/10' : 'border-[#D6D6D6] hover:border-[#B0B0B0] hover:shadow-md'}`}>
+            <div className="flex items-start gap-5">
+                {/* Thumbnail */}
+                <div className="w-24 h-24 bg-[#F1F1F1] rounded-xl shrink-0 flex items-center justify-center border border-[#D6D6D6] overflow-hidden">
                     {listing.file && listing.file.type.startsWith('image') ? (
-                        <img src={URL.createObjectURL(listing.file)} alt="Preview" className="w-full h-full object-cover rounded-lg" />
+                        <img src={URL.createObjectURL(listing.file)} alt="Preview" className="w-full h-full object-cover" />
                     ) : (
-                        <ImageIcon className="w-8 h-8 text-slate-600" />
+                        <ImageIcon className="w-8 h-8 text-[#B0B0B0]" />
                     )}
                 </div>
 
-                {/* Content Preview */}
-                <div className="flex-1 space-y-3">
-                    <div className="flex items-start justify-between">
-                        <div className="space-y-1 w-full mr-4">
+                {/* Content */}
+                <div className="flex-1 space-y-3 min-w-0">
+                    <div className="flex items-start justify-between gap-3">
+                        <div className="space-y-1 flex-1 min-w-0">
                             <input
                                 type="text"
                                 name="title"
                                 value={listing.title}
                                 onChange={handleChange}
-                                className="bg-transparent border-b border-transparent hover:border-slate-700 focus:border-indigo-500 focus:outline-none w-full font-medium text-lg text-white placeholder-slate-600 transition-colors py-1"
+                                className="bg-transparent border-b-2 border-transparent hover:border-[#D6D6D6] focus:border-[#F1641E] focus:outline-none w-full font-semibold text-lg text-[#222222] placeholder-[#B0B0B0] transition-colors py-1"
                                 placeholder="Listing Title"
                             />
-                            <p className="text-xs text-slate-500 font-mono truncate">{listing.fileName}</p>
+                            <p className="text-xs text-[#757575] font-mono truncate">{listing.fileName}</p>
                         </div>
-                        <div className="flex items-center gap-2 shrink-0">
-                            <button className="p-2 text-slate-400 hover:text-indigo-400 hover:bg-slate-800 rounded-md transition-colors" title="Regenerate AI">
+                        <div className="flex items-center gap-1 shrink-0">
+                            <button className="p-2 text-[#757575] hover:text-[#F1641E] hover:bg-[#FFF3ED] rounded-lg transition-colors" title="Regenerate">
                                 <RefreshCw className="w-4 h-4" />
                             </button>
-                            <button onClick={() => onDelete(listing.id)} className="p-2 text-slate-400 hover:text-red-400 hover:bg-slate-800 rounded-md transition-colors">
+                            <button onClick={() => onDelete(listing.id)} className="p-2 text-[#757575] hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors" title="Delete">
                                 <Trash2 className="w-4 h-4" />
                             </button>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-3">
                         <div className="relative">
-                            <Tag className="w-3 h-3 absolute top-3 left-3 text-slate-500" />
+                            <Tag className="w-3.5 h-3.5 absolute top-2.5 left-3 text-[#B0B0B0]" />
                             <input
                                 type="text"
                                 value={listing.tags.join(', ')}
                                 onChange={handleTagsChange}
-                                className="input pl-8 py-2 text-sm bg-slate-950/30 border-slate-800"
+                                className="w-full pl-8 py-2 text-sm bg-[#FAF9F7] border border-[#D6D6D6] rounded-lg text-[#222222] placeholder-[#B0B0B0] focus:outline-none focus:border-[#F1641E] focus:ring-1 focus:ring-[#F1641E]/20 transition-all"
                                 placeholder="Tags (comma separated)"
                             />
                         </div>
                         <div className="relative">
-                            <span className="absolute top-2 left-3 text-slate-500 text-sm">$</span>
+                            <span className="absolute top-2 left-3 text-[#757575] text-sm">$</span>
                             <input
                                 type="number"
                                 name="price"
                                 value={listing.price}
                                 onChange={handleChange}
-                                className="input pl-6 py-2 text-sm bg-slate-950/30 border-slate-800"
+                                className="w-full pl-6 py-2 text-sm bg-[#FAF9F7] border border-[#D6D6D6] rounded-lg text-[#222222] placeholder-[#B0B0B0] focus:outline-none focus:border-[#F1641E] focus:ring-1 focus:ring-[#F1641E]/20 transition-all"
                                 placeholder="Price"
                             />
                         </div>
@@ -76,15 +76,15 @@ export function ListingCard({ listing, onUpdate, onDelete }) {
                 </div>
             </div>
 
-            {/* Description Area - Always visible but styled nicely */}
-            <div className="mt-4 pt-4 border-t border-slate-800/50">
-                <label className="text-xs font-medium text-slate-500 mb-2 block uppercase tracking-wider">Description</label>
+            {/* Description */}
+            <div className="mt-4 pt-4 border-t border-[#F1F1F1]">
+                <label className="text-xs font-medium text-[#757575] mb-2 block uppercase tracking-wider">Description</label>
                 <textarea
                     name="description"
                     value={listing.description}
                     onChange={handleChange}
                     rows={isExpanded ? 8 : 3}
-                    className="w-full bg-slate-950/30 border border-slate-800 rounded-lg p-3 text-sm text-slate-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-all resize-y"
+                    className="w-full bg-[#FAF9F7] border border-[#D6D6D6] rounded-xl p-3 text-sm text-[#222222] focus:border-[#F1641E] focus:ring-2 focus:ring-[#F1641E]/10 outline-none transition-all resize-y placeholder-[#B0B0B0]"
                     placeholder="Product description..."
                     onFocus={() => setIsExpanded(true)}
                     onBlur={() => setIsExpanded(false)}

@@ -17,21 +17,21 @@ export function GlobalForm({ onUpdate }) {
   }
 
   return (
-    <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl p-8 space-y-8 shadow-2xl">
-      <div className="flex items-center gap-4 border-b border-slate-800 pb-6">
-        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center border border-slate-700/50">
-          <Layout className="w-6 h-6 text-indigo-400" />
+    <div className="bg-white border border-[#D6D6D6] rounded-2xl p-7 space-y-7 shadow-sm">
+      <div className="flex items-center gap-3 border-b border-[#F1F1F1] pb-5">
+        <div className="w-10 h-10 rounded-xl bg-[#FFF3ED] flex items-center justify-center">
+          <Layout className="w-5 h-5 text-[#F1641E]" />
         </div>
         <div>
-          <h3 className="text-xl font-bold text-white tracking-tight">Global Listing Rules</h3>
-          <p className="text-slate-400 text-xs font-medium uppercase tracking-wider">Base parameters for AI generation</p>
+          <h3 className="text-lg font-bold text-[#222222]">Listing Rules</h3>
+          <p className="text-[#757575] text-xs font-medium">Base parameters for generation</p>
         </div>
       </div>
 
-      <div className="space-y-6">
-        <div className="space-y-2 group">
-          <label className="text-sm font-medium text-slate-300 flex items-center gap-2 transition-colors group-focus-within:text-indigo-400">
-            <Type className="w-4 h-4" /> Base Title Template
+      <div className="space-y-5">
+        <div className="space-y-1.5">
+          <label className="text-sm font-medium text-[#222222] flex items-center gap-2">
+            <Type className="w-4 h-4 text-[#757575]" /> Base Title Template
           </label>
           <input
             type="text"
@@ -39,31 +39,31 @@ export function GlobalForm({ onUpdate }) {
             value={formData.baseTitle}
             onChange={handleChange}
             placeholder="e.g. Minimalist Abstract Wall Art Print"
-            className="w-full bg-slate-950/50 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:bg-slate-900 transition-all font-medium"
+            className="w-full bg-[#FAF9F7] border border-[#D6D6D6] rounded-xl px-4 py-3 text-[#222222] placeholder-[#B0B0B0] focus:outline-none focus:border-[#F1641E] focus:ring-2 focus:ring-[#F1641E]/20 transition-all text-sm"
           />
-          <p className="text-xs text-slate-500 pl-1">The AI will generate SEO-optimized variations based on this core title.</p>
+          <p className="text-xs text-[#757575] pl-1">AI will generate SEO-optimized variations.</p>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
-          <div className="space-y-2 group">
-            <label className="text-sm font-medium text-slate-300 flex items-center gap-2 transition-colors group-focus-within:text-indigo-400">
-              <DollarSign className="w-4 h-4" /> Price
+        <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-1.5">
+            <label className="text-sm font-medium text-[#222222] flex items-center gap-2">
+              <DollarSign className="w-4 h-4 text-[#757575]" /> Price
             </label>
             <div className="relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500">$</span>
+              <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#757575] text-sm">$</span>
               <input
                 type="number"
                 name="price"
                 value={formData.price}
                 onChange={handleChange}
                 placeholder="5.00"
-                className="w-full bg-slate-950/50 border border-slate-800 rounded-xl pl-8 pr-4 py-3 text-slate-200 placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:bg-slate-900 transition-all font-mono"
+                className="w-full bg-[#FAF9F7] border border-[#D6D6D6] rounded-xl pl-7 pr-4 py-3 text-[#222222] placeholder-[#B0B0B0] focus:outline-none focus:border-[#F1641E] focus:ring-2 focus:ring-[#F1641E]/20 transition-all font-mono text-sm"
               />
             </div>
           </div>
-          <div className="space-y-2 group">
-            <label className="text-sm font-medium text-slate-300 flex items-center gap-2 transition-colors group-focus-within:text-indigo-400">
-              <Tag className="w-4 h-4" /> Keywords
+          <div className="space-y-1.5">
+            <label className="text-sm font-medium text-[#222222] flex items-center gap-2">
+              <Tag className="w-4 h-4 text-[#757575]" /> Keywords
             </label>
             <input
               type="text"
@@ -71,22 +71,22 @@ export function GlobalForm({ onUpdate }) {
               value={formData.keywords}
               onChange={handleChange}
               placeholder="art, digital, ..."
-              className="w-full bg-slate-950/50 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:bg-slate-900 transition-all"
+              className="w-full bg-[#FAF9F7] border border-[#D6D6D6] rounded-xl px-4 py-3 text-[#222222] placeholder-[#B0B0B0] focus:outline-none focus:border-[#F1641E] focus:ring-2 focus:ring-[#F1641E]/20 transition-all text-sm"
             />
           </div>
         </div>
 
-        <div className="space-y-2 group">
-          <label className="text-sm font-medium text-slate-300 flex items-center gap-2 transition-colors group-focus-within:text-indigo-400">
-            <FileText className="w-4 h-4" /> Base Description
+        <div className="space-y-1.5">
+          <label className="text-sm font-medium text-[#222222] flex items-center gap-2">
+            <FileText className="w-4 h-4 text-[#757575]" /> Base Description
           </label>
           <textarea
             name="baseDescription"
             value={formData.baseDescription}
             onChange={handleChange}
             rows={5}
-            placeholder="Describe the key features, easy download process, and file sizes included..."
-            className="w-full bg-slate-950/50 border border-slate-800 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:bg-slate-900 transition-all resize-none leading-relaxed"
+            placeholder="Describe your product's key features, download format, and file sizes..."
+            className="w-full bg-[#FAF9F7] border border-[#D6D6D6] rounded-xl px-4 py-3 text-[#222222] placeholder-[#B0B0B0] focus:outline-none focus:border-[#F1641E] focus:ring-2 focus:ring-[#F1641E]/20 transition-all resize-none leading-relaxed text-sm"
           />
         </div>
       </div>
