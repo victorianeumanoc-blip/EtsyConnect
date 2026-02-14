@@ -8,9 +8,7 @@ export function Layout({ children, activeTab, setActiveTab }) {
                 <div className="container h-16 flex items-center justify-between">
                     {/* Logo */}
                     <div className="flex items-center gap-2.5 cursor-pointer group">
-                        <div className="w-9 h-9 rounded-lg bg-[#F1641E] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200">
-                            <Upload className="w-4.5 h-4.5 text-white" />
-                        </div>
+                        <img src="/favicon.svg" alt="ET Connect" className="w-9 h-9 rounded-lg shadow-md group-hover:scale-105 transition-transform duration-200" />
                         <div className="flex items-baseline gap-2">
                             <h1 className="text-xl font-bold text-[#222222] tracking-tight">
                                 ET Connect
@@ -26,8 +24,8 @@ export function Layout({ children, activeTab, setActiveTab }) {
                         <button
                             onClick={() => setActiveTab('upload')}
                             className={`px-5 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center gap-2 ${activeTab === 'upload'
-                                    ? 'bg-white text-[#222222] shadow-sm border border-[#D6D6D6]'
-                                    : 'text-[#757575] hover:text-[#222222] hover:bg-white/50'
+                                ? 'bg-white text-[#222222] shadow-sm border border-[#D6D6D6]'
+                                : 'text-[#757575] hover:text-[#222222] hover:bg-white/50'
                                 }`}
                         >
                             <Upload className="w-4 h-4" /> Upload
@@ -35,8 +33,8 @@ export function Layout({ children, activeTab, setActiveTab }) {
                         <button
                             onClick={() => setActiveTab('listings')}
                             className={`px-5 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center gap-2 ${activeTab === 'listings'
-                                    ? 'bg-white text-[#222222] shadow-sm border border-[#D6D6D6]'
-                                    : 'text-[#757575] hover:text-[#222222] hover:bg-white/50'
+                                ? 'bg-white text-[#222222] shadow-sm border border-[#D6D6D6]'
+                                : 'text-[#757575] hover:text-[#222222] hover:bg-white/50'
                                 }`}
                         >
                             <Sparkles className="w-4 h-4" /> Listings
