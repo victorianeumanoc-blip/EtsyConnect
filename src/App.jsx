@@ -1,20 +1,51 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { Layout } from './components/Layout/Layout'
 import { FileUploader } from './components/Upload/FileUploader'
 import { GlobalForm } from './components/Upload/GlobalForm'
 import { ListingCard } from './components/Listing/ListingCard'
+import { ConnectStore } from './components/Settings/ConnectStore'
 import { generateEtsyCSV, downloadCSV } from './utils/csv'
+import { exchangeCodeForToken, isConnected as checkEtsyConnected } from './utils/etsy'
 import { FileText, Sparkles, Upload as UploadIcon, ArrowRight, Download, CheckCircle2, Package, Zap } from 'lucide-react'
 
 function App() {
   const [activeTab, setActiveTab] = useState('upload')
   const [listings, setListings] = useState([])
+  const [etsyConnected, setEtsyConnected] = useState(checkEtsyConnected())
   const [globalData, setGlobalData] = useState({
     baseTitle: '',
     baseDescription: '',
     keywords: '',
     price: ''
   })
+
+  // Handle OAuth callback
+  useEffect(() => {
+    const url = new URL(window.location.href)
+    const code = url.searchParams.get('code')
+    const state = url.searchParams.get('state')
+
+    if (code) {
+      const savedState = sessionStorage.getItem('etsy_oauth_state')
+      if (state && state === savedState) {
+        exchangeCodeForToken(code)
+          .then(() => {
+            setEtsyConnected(true)
+            setActiveTab('settings')
+          })
+          .catch((err) => {
+            console.error('OAuth error:', err)
+          })
+          .finally(() => {
+            // Clean URL
+            window.history.replaceState({}, document.title, window.location.pathname)
+          })
+      } else {
+        // Clean URL on state mismatch
+        window.history.replaceState({}, document.title, window.location.pathname)
+      }
+    }
+  }, [])
 
   const handleUpload = useCallback((files) => {
     const newListings = files.map(file => ({
@@ -67,7 +98,7 @@ function App() {
   }
 
   return (
-    <Layout activeTab={activeTab} setActiveTab={setActiveTab}>
+    <Layout activeTab={activeTab} setActiveTab={setActiveTab} isStoreConnected={etsyConnected}>
       {activeTab === 'upload' && (
         <div className="max-w-6xl mx-auto space-y-10">
 
@@ -211,6 +242,10 @@ function App() {
             </>
           )}
         </div>
+      )}
+
+      {activeTab === 'settings' && (
+        <ConnectStore />
       )}
     </Layout>
   )

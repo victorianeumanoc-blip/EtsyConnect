@@ -1,6 +1,6 @@
-import { Upload, Download, Settings, Github, Sparkles } from 'lucide-react'
+import { Upload, Download, Settings, Github, Sparkles, Store } from 'lucide-react'
 
-export function Layout({ children, activeTab, setActiveTab }) {
+export function Layout({ children, activeTab, setActiveTab, isStoreConnected }) {
     return (
         <div className="min-h-screen flex flex-col bg-[#FAF9F7] text-[#222222]">
             {/* Header */}
@@ -39,11 +39,27 @@ export function Layout({ children, activeTab, setActiveTab }) {
                         >
                             <Sparkles className="w-4 h-4" /> Listings
                         </button>
+                        <button
+                            onClick={() => setActiveTab('settings')}
+                            className={`px-5 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center gap-2 ${activeTab === 'settings'
+                                ? 'bg-white text-[#222222] shadow-sm border border-[#D6D6D6]'
+                                : 'text-[#757575] hover:text-[#222222] hover:bg-white/50'
+                                }`}
+                        >
+                            <Store className="w-4 h-4" />
+                            Connect
+                            {isStoreConnected && (
+                                <span className="w-2 h-2 rounded-full bg-[#258635]" />
+                            )}
+                        </button>
                     </nav>
 
                     {/* Actions */}
                     <div className="flex items-center gap-2">
-                        <button className="p-2 text-[#757575] hover:text-[#222222] rounded-lg hover:bg-[#F1F1F1] transition-colors">
+                        <button
+                            onClick={() => setActiveTab('settings')}
+                            className="p-2 text-[#757575] hover:text-[#222222] rounded-lg hover:bg-[#F1F1F1] transition-colors"
+                        >
                             <Settings className="w-5 h-5" />
                         </button>
                         <button className="flex items-center gap-2 px-5 py-2.5 bg-[#222222] text-white rounded-full font-medium text-sm hover:bg-[#000000] transition-colors shadow-sm">
