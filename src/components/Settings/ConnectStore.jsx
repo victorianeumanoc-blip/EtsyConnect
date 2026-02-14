@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import {
     Store, ExternalLink, CheckCircle2, XCircle, RefreshCw,
-    Shield, Zap, LinkIcon, Unlink, AlertCircle, Key
+    Shield, Zap, LinkIcon, Unlink, AlertCircle
 } from 'lucide-react'
 import {
     startEtsyOAuth, fetchShopInfo, disconnectEtsy,
-    isConnected, hasApiKey, getStoredShopInfo, saveShopInfo
+    isConnected, getStoredShopInfo, saveShopInfo
 } from '../../utils/etsy'
 
 export function ConnectStore() {
@@ -36,10 +36,6 @@ export function ConnectStore() {
     }
 
     function handleConnect() {
-        if (!hasApiKey()) {
-            setError('Etsy API Key is not configured. Add VITE_ETSY_API_KEY to your .env file.')
-            return
-        }
         startEtsyOAuth()
     }
 
@@ -50,7 +46,7 @@ export function ConnectStore() {
         setError('')
     }
 
-    const apiKeyMissing = !hasApiKey()
+
 
     return (
         <div className="max-w-3xl mx-auto space-y-8">
@@ -63,27 +59,6 @@ export function ConnectStore() {
                 </p>
             </div>
 
-            {/* API Key Warning */}
-            {apiKeyMissing && (
-                <div className="flex items-start gap-3 p-4 bg-amber-50 border border-amber-200 rounded-2xl">
-                    <Key className="w-5 h-5 text-amber-600 mt-0.5 shrink-0" />
-                    <div>
-                        <p className="font-semibold text-amber-800 text-sm">API Key Required</p>
-                        <p className="text-amber-700 text-sm mt-1">
-                            To connect your Etsy shop, you need an API key from the{' '}
-                            <a
-                                href="https://www.etsy.com/developers"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="underline font-medium hover:text-amber-900"
-                            >
-                                Etsy Developer Portal
-                            </a>
-                            . Add it as <code className="bg-amber-100 px-1.5 py-0.5 rounded text-xs font-mono">VITE_ETSY_API_KEY</code> in your <code className="bg-amber-100 px-1.5 py-0.5 rounded text-xs font-mono">.env</code> file.
-                        </p>
-                    </div>
-                </div>
-            )}
 
             {/* Error */}
             {error && (
@@ -195,11 +170,7 @@ export function ConnectStore() {
                         <div className="p-8 space-y-6">
                             <button
                                 onClick={handleConnect}
-                                disabled={apiKeyMissing}
-                                className={`w-full flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-semibold text-base transition-all duration-200 shadow-md ${apiKeyMissing
-                                        ? 'bg-[#D6D6D6] text-[#757575] cursor-not-allowed'
-                                        : 'bg-[#F1641E] hover:bg-[#D35400] text-white hover:shadow-lg hover:-translate-y-0.5'
-                                    }`}
+                                className="w-full flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-semibold text-base transition-all duration-200 shadow-md bg-[#F1641E] hover:bg-[#D35400] text-white hover:shadow-lg hover:-translate-y-0.5"
                             >
                                 <LinkIcon className="w-5 h-5" />
                                 Connect with Etsy
