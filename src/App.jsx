@@ -83,7 +83,7 @@ function App() {
                 Upload & Configure
               </h2>
               <p className="text-slate-400 text-lg max-w-xl">
-                Upload your digital assets and define global parameters to automatically generate optimized Etsy listings.
+                Upload your digital assets and define global parameters to automatically generate optimized listings.
               </p>
             </div>
             {listings.length > 0 && (
@@ -147,7 +147,7 @@ function App() {
             {[
               { icon: FileText, color: 'text-blue-400', bg: 'bg-blue-500/10', title: 'Smart Templates', desc: 'Define global rules for consistency.' },
               { icon: Sparkles, color: 'text-purple-400', bg: 'bg-purple-500/10', title: 'AI Generation', desc: 'Auto-generate titles & descriptions.' },
-              { icon: UploadIcon, color: 'text-emerald-400', bg: 'bg-emerald-500/10', title: 'Bulk Export', desc: 'Download CSV for Etsy upload.' }
+              { icon: UploadIcon, color: 'text-emerald-400', bg: 'bg-emerald-500/10', title: 'Bulk Export', desc: 'Download CSV for bulk upload.' }
             ].map((feature, i) => (
               <div key={i} className="group p-6 bg-slate-900/40 border border-slate-800/50 rounded-2xl hover:bg-slate-800/60 hover:border-indigo-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10">
                 <div className={`w-12 h-12 rounded-xl ${feature.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
@@ -169,7 +169,7 @@ function App() {
                 <Sparkles className="w-10 h-10 text-slate-600" />
               </div>
               <h2 className="text-2xl font-bold text-white mb-3">No listings generated yet</h2>
-              <p className="text-slate-400 mb-8 max-w-md mx-auto">Upload your files in the "Upload" tab to start generating your Etsy listings.</p>
+              <p className="text-slate-400 mb-8 max-w-md mx-auto">Upload your files in the "Upload" tab to start generating your listings.</p>
               <button onClick={() => setActiveTab('upload')} className="btn bg-white text-slate-900 px-6 py-2.5 rounded-full font-medium hover:bg-indigo-50 transition-colors">
                 Go to Upload
               </button>

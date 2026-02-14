@@ -21,7 +21,7 @@ export function Layout({ children, activeTab, setActiveTab }) {
                         </div>
                         <div>
                             <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-200 to-indigo-400 tracking-tight">
-                                Etsy Connect
+                                ET Connect
                             </h1>
                             <span className="text-[10px] font-bold uppercase tracking-widest text-indigo-400/80 bg-indigo-500/10 px-2 py-0.5 rounded-full border border-indigo-500/20">
                                 Beta
@@ -33,8 +33,8 @@ export function Layout({ children, activeTab, setActiveTab }) {
                         <button
                             onClick={() => setActiveTab('upload')}
                             className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden ${activeTab === 'upload'
-                                    ? 'text-white shadow-lg'
-                                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                                ? 'text-white shadow-lg'
+                                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
                                 }`}
                         >
                             {activeTab === 'upload' && (
@@ -47,8 +47,8 @@ export function Layout({ children, activeTab, setActiveTab }) {
                         <button
                             onClick={() => setActiveTab('listings')}
                             className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 relative overflow-hidden ${activeTab === 'listings'
-                                    ? 'text-white shadow-lg'
-                                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                                ? 'text-white shadow-lg'
+                                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
                                 }`}
                         >
                             {activeTab === 'listings' && (
@@ -81,7 +81,7 @@ export function Layout({ children, activeTab, setActiveTab }) {
             {/* Footer */}
             <footer className="border-t border-slate-800/50 py-8 bg-slate-950/50 backdrop-blur-sm">
                 <div className="container flex flex-col md:flex-row items-center justify-between text-sm text-slate-500 gap-4">
-                    <p>© 2024 Etsy Connect. Local AI Tool.</p>
+                    <p>© 2024 ET Connect. Local AI Tool.</p>
                     <div className="flex items-center gap-6">
                         <a href="#" className="hover:text-indigo-400 transition-colors">Privacy Policy</a>
                         <a href="#" className="hover:text-indigo-400 transition-colors">Terms of Service</a>

@@ -1,7 +1,7 @@
 export function generateEtsyCSV(listings) {
-    // Define standard Etsy CSV columns
+    // Define standard CSV columns
     // Note: This is a simplified set based on common requirements. 
-    // Real Etsy CSVs have many explicit columns depending on the category.
+    // Real marketplace CSVs have many explicit columns depending on the category.
     const columns = [
         'Title',
         'Description',
@@ -34,7 +34,7 @@ export function generateEtsyCSV(listings) {
             listing.description,
             listing.price,
             listing.quantity,
-            listing.tags.join(','), // Etsy tags are usually comma separated in one field or separate columns. keeping simple.
+            listing.tags.join(','), // tags are usually comma separated in one field or separate columns. keeping simple.
             '', // Materials
             '', // Shop Section
             'Digital Print', // Category placeholder
